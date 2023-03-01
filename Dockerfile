@@ -1,22 +1,8 @@
 FROM alpine:3.16
 
 RUN apk update && \
-  apk add --update \
-    bash \
-    easy-rsa \
-    git \
-    openssh-client \
-    curl \
-    ca-certificates \
-    jq \
-    python \
-    py-yaml \
-    py2-pip \
-    libstdc++ \
-    gpgme \
-    git-crypt \
-    && \
-  rm -rf /var/cache/apk/*
+ apk add --no-cache bash easy-rsa git openssh-client curl ca-certificates jq python3 python3-dev py-yaml py3-pip libstdc++ gpgme git-crypt musl-dev build-base && \
+ rm -rf /var/cache/apk/*
 
 RUN pip install ijson awscli ruamel.yaml
 RUN adduser -h /backup -D backup
