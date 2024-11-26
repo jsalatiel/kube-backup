@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3
 
 RUN apk update && \
  apk add --no-cache bash easy-rsa git openssh-client curl ca-certificates jq python3 python3-dev py-yaml py3-pip libstdc++ gpgme git-crypt musl-dev build-base && \
