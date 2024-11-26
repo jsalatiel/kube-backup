@@ -1,10 +1,8 @@
 FROM alpine:3
 
-RUN apk update && \
- apk add --no-cache bash easy-rsa git openssh-client curl ca-certificates jq python3 python3-dev py-yaml py3-pip libstdc++ gpgme git-crypt musl-dev build-base && \
- rm -rf /var/cache/apk/*
-
-RUN pip install ijson awscli ruamel.yaml
+RUN apk add --no-cache bash easy-rsa git openssh-client curl ca-certificates jq python3 py3-setuptools py3-wheel py3-ijson py3-ruamel.yaml aws-cli  libstdc++ gpgme git-crypt
+ 
+#RUN pip install ijson awscli ruamel.yaml
 RUN adduser -h /backup -D backup
 
 ENV KUBECTL_VERSION 1.23.7
